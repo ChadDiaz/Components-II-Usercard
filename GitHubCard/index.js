@@ -50,7 +50,7 @@ axios.get("https://api.github.com/users/ChadDiaz")
 const followersArray = [];
 axios.get("https://api.github.com/users/chaddiaz/followers")
   .then((firstResponse) => {
-    log('success', firstResponse)
+    log('firstResponse', firstResponse)
     firstResponse.data.map((item) => {
     followersArray.push(item.login);
     });
@@ -65,7 +65,7 @@ axios.get("https://api.github.com/users/chaddiaz/followers")
     followers.map((follower) => {
       axios.get(`https://api.github.com/users/${follower}`)
         .then((secondResponse) => {
-          log('success', secondResponse)
+          log('secondResponse', secondResponse)
           document.querySelector(".cards")
           .appendChild(gitCard(secondResponse.data));
         })
@@ -99,7 +99,7 @@ axios.get("https://api.github.com/users/chaddiaz/followers")
 */
 const gitCard = (object) => {
   //creating elements SECTION
-  const card = document.createElement('div');
+const card = document.createElement('div');
   const userImg = document.createElement('img');
   const cardInfo = document.createElement('div');
   const userName = document.createElement('h3');
@@ -152,7 +152,7 @@ const gitCard = (object) => {
     ? (biosP.textContent = `Bio: ${object.bio}`)
     : (biosP.textContent = `Bio: Not Available`);
 
-  return card;
+return card;
 }
 /*
   List of LS Instructors Github username's:
