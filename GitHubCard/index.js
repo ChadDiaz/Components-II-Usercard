@@ -49,11 +49,7 @@ axios.get("https://api.github.com/users/ChadDiaz")
 
 const followersArray = [];
 axios.get("https://api.github.com/users/chaddiaz/followers")
-  .then((firstResponse) => {
-    log('firstResponse', firstResponse)
-    firstResponse.data.map((item) => {
-    followersArray.push(item.login);
-    });
+  .then(() => {
     return followersArray.concat([
       "ajablanco",
       "ORiveraJr84",
